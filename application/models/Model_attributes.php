@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class Model_attributes extends CI_Model
 {
@@ -7,7 +7,7 @@ class Model_attributes extends CI_Model
 		parent::__construct();
 	}
 
-	// get the active atttributes data 
+
 	public function getActiveAttributeData()
 	{
 		$sql = "SELECT * FROM attributes WHERE active = ?";
@@ -15,10 +15,10 @@ class Model_attributes extends CI_Model
 		return $query->result_array();
 	}
 
-	/* get the attribute data */
+
 	public function getAttributeData($id = null)
 	{
-		if($id) {
+		if ($id) {
 			$sql = "SELECT * FROM attributes where id = ?";
 			$query = $this->db->query($sql, array($id));
 			return $query->row_array();
@@ -31,7 +31,7 @@ class Model_attributes extends CI_Model
 
 	public function countAttributeValue($id = null)
 	{
-		if($id) {
+		if ($id) {
 			$sql = "SELECT * FROM attribute_value WHERE attribute_parent_id = ?";
 			$query = $this->db->query($sql, array($id));
 			return $query->num_rows();
@@ -56,7 +56,7 @@ class Model_attributes extends CI_Model
 
 	public function create($data)
 	{
-		if($data) {
+		if ($data) {
 			$insert = $this->db->insert('attributes', $data);
 			return ($insert == true) ? true : false;
 		}
@@ -64,7 +64,7 @@ class Model_attributes extends CI_Model
 
 	public function update($data, $id)
 	{
-		if($data && $id) {
+		if ($data && $id) {
 			$this->db->where('id', $id);
 			$update = $this->db->update('attributes', $data);
 			return ($update == true) ? true : false;
@@ -73,7 +73,7 @@ class Model_attributes extends CI_Model
 
 	public function remove($id)
 	{
-		if($id) {
+		if ($id) {
 			$this->db->where('id', $id);
 			$delete = $this->db->delete('attributes');
 			return ($delete == true) ? true : false;
@@ -82,7 +82,7 @@ class Model_attributes extends CI_Model
 
 	public function createValue($data)
 	{
-		if($data) {
+		if ($data) {
 			$insert = $this->db->insert('attribute_value', $data);
 			return ($insert == true) ? true : false;
 		}
@@ -90,7 +90,7 @@ class Model_attributes extends CI_Model
 
 	public function updateValue($data, $id)
 	{
-		if($data && $id) {
+		if ($data && $id) {
 			$this->db->where('id', $id);
 			$update = $this->db->update('attribute_value', $data);
 			return ($update == true) ? true : false;
@@ -99,11 +99,10 @@ class Model_attributes extends CI_Model
 
 	public function removeValue($id)
 	{
-		if($id) {
+		if ($id) {
 			$this->db->where('id', $id);
 			$delete = $this->db->delete('attribute_value');
 			return ($delete == true) ? true : false;
 		}
 	}
-
 }

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class Model_groups extends CI_Model
 {
@@ -7,9 +7,9 @@ class Model_groups extends CI_Model
 		parent::__construct();
 	}
 
-	public function getGroupData($groupId = null) 
+	public function getGroupData($groupId = null)
 	{
-		if($groupId) {
+		if ($groupId) {
 			$sql = "SELECT * FROM groups WHERE id = ?";
 			$query = $this->db->query($sql, array($groupId));
 			return $query->row_array();
@@ -30,7 +30,7 @@ class Model_groups extends CI_Model
 	{
 		$this->db->where('id', $id);
 		$update = $this->db->update('groups', $data);
-		return ($update == true) ? true : false;	
+		return ($update == true) ? true : false;
 	}
 
 	public function delete($id)
@@ -47,7 +47,7 @@ class Model_groups extends CI_Model
 		return ($query->num_rows() == 1) ? true : false;
 	}
 
-	public function getUserGroupByUserId($user_id) 
+	public function getUserGroupByUserId($user_id)
 	{
 		$sql = "SELECT * FROM user_group 
 		INNER JOIN groups ON groups.id = user_group.group_id 
@@ -56,6 +56,5 @@ class Model_groups extends CI_Model
 		$result = $query->row_array();
 
 		return $result;
-
 	}
 }

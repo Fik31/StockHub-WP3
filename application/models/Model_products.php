@@ -7,7 +7,6 @@ class Model_products extends CI_Model
 		parent::__construct();
 	}
 
-	/* get the brand data */
 	public function getProductData($id = null)
 	{
 		if($id) {
@@ -61,7 +60,6 @@ class Model_products extends CI_Model
 		return $query->num_rows();
 	}
 
-
 	public function countTotalbrands()
 	{
 		$sql = "SELECT * FROM brands";
@@ -75,7 +73,6 @@ class Model_products extends CI_Model
 		$query = $this->db->query($sql);
 		return $query->num_rows();
 	}
-
 
 	public function countTotalattribures()
 	{

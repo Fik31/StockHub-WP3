@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class Model_category extends CI_Model
 {
@@ -7,7 +7,7 @@ class Model_category extends CI_Model
 		parent::__construct();
 	}
 
-	/* get active brand infromation */
+
 	public function getActiveCategroy()
 	{
 		$sql = "SELECT * FROM categories WHERE active = ?";
@@ -15,10 +15,10 @@ class Model_category extends CI_Model
 		return $query->result_array();
 	}
 
-	/* get the brand data */
+
 	public function getCategoryData($id = null)
 	{
-		if($id) {
+		if ($id) {
 			$sql = "SELECT * FROM categories WHERE id = ?";
 			$query = $this->db->query($sql, array($id));
 			return $query->row_array();
@@ -31,7 +31,7 @@ class Model_category extends CI_Model
 
 	public function create($data)
 	{
-		if($data) {
+		if ($data) {
 			$insert = $this->db->insert('categories', $data);
 			return ($insert == true) ? true : false;
 		}
@@ -39,7 +39,7 @@ class Model_category extends CI_Model
 
 	public function update($data, $id)
 	{
-		if($data && $id) {
+		if ($data && $id) {
 			$this->db->where('id', $id);
 			$update = $this->db->update('categories', $data);
 			return ($update == true) ? true : false;
@@ -48,11 +48,10 @@ class Model_category extends CI_Model
 
 	public function remove($id)
 	{
-		if($id) {
+		if ($id) {
 			$this->db->where('id', $id);
 			$delete = $this->db->delete('categories');
 			return ($delete == true) ? true : false;
 		}
 	}
-
 }

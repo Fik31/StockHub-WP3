@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class Model_stores extends CI_Model
 {
@@ -7,7 +7,7 @@ class Model_stores extends CI_Model
 		parent::__construct();
 	}
 
-	/* get the active store data */
+
 	public function getActiveStore()
 	{
 		$sql = "SELECT * FROM stores WHERE active = ?";
@@ -15,10 +15,10 @@ class Model_stores extends CI_Model
 		return $query->result_array();
 	}
 
-	/* get the brand data */
+
 	public function getStoresData($id = null)
 	{
-		if($id) {
+		if ($id) {
 			$sql = "SELECT * FROM stores where id = ?";
 			$query = $this->db->query($sql, array($id));
 			return $query->row_array();
@@ -31,7 +31,7 @@ class Model_stores extends CI_Model
 
 	public function create($data)
 	{
-		if($data) {
+		if ($data) {
 			$insert = $this->db->insert('stores', $data);
 			return ($insert == true) ? true : false;
 		}
@@ -39,7 +39,7 @@ class Model_stores extends CI_Model
 
 	public function update($data, $id)
 	{
-		if($data && $id) {
+		if ($data && $id) {
 			$this->db->where('id', $id);
 			$update = $this->db->update('stores', $data);
 			return ($update == true) ? true : false;
@@ -48,7 +48,7 @@ class Model_stores extends CI_Model
 
 	public function remove($id)
 	{
-		if($id) {
+		if ($id) {
 			$this->db->where('id', $id);
 			$delete = $this->db->delete('stores');
 			return ($delete == true) ? true : false;
@@ -61,5 +61,4 @@ class Model_stores extends CI_Model
 		$query = $this->db->query($sql, array(1));
 		return $query->num_rows();
 	}
-
 }
