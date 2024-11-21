@@ -149,8 +149,8 @@
 
 
         <?php if (in_array('updateCompany', $user_permission)): ?>
-            <li id="companyNav"><a href="<?php echo base_url('Company/') ?>"><i class="fa fa-bank"></i> <span>Company</span></a></li>
-          <?php endif; ?>
+          <li id="companyNav"><a href="<?php echo base_url('Company/') ?>"><i class="fa fa-bank"></i> <span>Company</span></a></li>
+        <?php endif; ?>
 
       <?php endif; ?>
       <!-- user permission info -->
