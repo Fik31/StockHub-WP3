@@ -2,4 +2,4 @@
 
 5th Semester University Project
 
-_Web Programming 3 UBSI_
+_Web Programming 3 - UBSI_
